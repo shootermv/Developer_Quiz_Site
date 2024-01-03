@@ -2,6 +2,7 @@ import React, { MouseEventHandler } from "react";
 import Button from "./Button";
 import "../stylesheets/HeroSection.css";
 import { ROUNDED_QUESTION_COUNT } from "../constants";
+import { NavLink } from "react-router-dom";
 const HeroSection: React.FC<{ start: MouseEventHandler<HTMLElement> }> = ({
   start
 }) => {
@@ -19,12 +20,16 @@ const HeroSection: React.FC<{ start: MouseEventHandler<HTMLElement> }> = ({
           </h2>
         </div>
         <div className="hero-button">
-          <Button
-            text="Get started (it's free)"
-            handleClick={start}
-            size="large"
-            isTransparent={false}
-          />
+          <NavLink to="/quizes">
+            <Button
+              text="Get started (it's free)"
+              handleClick={() => {
+                console.log("");
+              }}
+              size="large"
+              isTransparent={false}
+            />
+          </NavLink>
         </div>
       </div>
     </div>

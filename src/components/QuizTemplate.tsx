@@ -12,6 +12,7 @@ import {
   correctModalResponses,
   incorrectModalResponses
 } from "../data/modal-responses";
+import { NavLink } from "react-router-dom";
 
 interface QuizProps {
   home: React.MouseEventHandler;
@@ -222,12 +223,16 @@ const QuizTemplate: React.FC<QuizProps> = QuizProps => {
 
   return (
     <>
-      <Button
-        handleClick={QuizProps.home}
-        text="Home"
-        isTransparent={false}
-        size={""}
-      />
+      <NavLink to="/">
+        <Button
+          handleClick={() => {
+            console.log("");
+          }}
+          text="Home"
+          isTransparent={false}
+          size={""}
+        />
+      </NavLink>
       <FCCLogo />
       {!showOptions ? (
         <SelectCategory

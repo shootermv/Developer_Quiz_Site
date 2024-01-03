@@ -7,6 +7,7 @@ import HeroSection from "./HeroSection";
 import "../stylesheets/HomepageRow.css";
 import React, { MouseEventHandler } from "react";
 import { ROUNDED_QUESTION_COUNT } from "../constants";
+import { NavLink } from "react-router-dom";
 
 const WelcomePage: React.FC<{ start: MouseEventHandler<HTMLElement> }> = ({
   start
@@ -30,12 +31,16 @@ const WelcomePage: React.FC<{ start: MouseEventHandler<HTMLElement> }> = ({
               {ROUNDED_QUESTION_COUNT}+ questions.
             </p>
 
-            <Button
-              handleClick={start}
-              text="Quiz"
-              isTransparent={false}
-              size={""}
-            />
+            <NavLink to="/quizes">
+              <Button
+                handleClick={() => {
+                  console.log("");
+                }}
+                text="Quiz"
+                isTransparent={false}
+                size={""}
+              />
+            </NavLink>
           </div>
           <div className="col-md-5 content-img-container">
             <img
