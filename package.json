@@ -1,6 +1,5 @@
 {
   "name": "rpg_quiz_site",
-  "homepage": "https://developerquiz.org",
   "description": "This is a free quiz site made for developers by freeCodeCamp",
   "version": "0.1.0",
   "private": true,
@@ -18,6 +17,7 @@
     "web-vitals": "^2.1.2"
   },
   "type": "module",
+  "homepage": "https://github.com/shootermv/Developer_Quiz_Site",
   "scripts": {
     "predeploy": "npm run build && cp CNAME dist/CNAME",
     "deploy": "gh-pages -d dist",
