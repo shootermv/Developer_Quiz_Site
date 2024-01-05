@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 interface SelectQuizProps {
   startQuiz: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
@@ -17,14 +18,18 @@ const SelectQuiz: React.FC<SelectQuizProps> = SelectQuizProps => {
       <h2 className="quiz-heading">Choose a length for the Quiz</h2>
       <div className="w-25 select-btn-div">
         {availableQuizLengths.map((choice: number, index: number) => (
-          <button
-            className="select-btns"
-            onClick={e => SelectQuizProps.startQuiz(e)}
-            value={choice}
+          <NavLink
+            to={`/quizes/${SelectQuizProps.selectedCategory}/questions/1`}
             key={index}
           >
-            {choice}
-          </button>
+            <button
+              className="select-btns"
+              onClick={e => SelectQuizProps.startQuiz(e)}
+              value={choice}
+            >
+              {choice}
+            </button>
+          </NavLink>
         ))}
 
         <button

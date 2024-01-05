@@ -270,6 +270,10 @@ const QuizTemplate: React.FC<QuizProps> = QuizProps => {
             />
           }
         />
+        <Route
+          path={"/:category/questions/:currentQuestion"}
+          element={<Questions {...questionProps} {...modalProps} />}
+        />
       </Routes>
     </>
   );
