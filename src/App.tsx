@@ -9,7 +9,10 @@ const App: React.FC = () => {
   return (
     <Routes>
       <Route path="/" element={<WelcomePage start={toggleHomePage} />} />
-      <Route path="/quizes" element={<QuizTemplate home={toggleHomePage} />} />
+      <Route
+        path="/quizes/*"
+        element={<QuizTemplate home={toggleHomePage} />}
+      />
     </Routes>
   );
 };

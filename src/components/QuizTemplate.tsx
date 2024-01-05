@@ -12,7 +12,7 @@ import {
   correctModalResponses,
   incorrectModalResponses
 } from "../data/modal-responses";
-import { NavLink } from "react-router-dom";
+import { NavLink, Route, Routes } from "react-router-dom";
 
 interface QuizProps {
   home: React.MouseEventHandler;
@@ -235,28 +235,42 @@ const QuizTemplate: React.FC<QuizProps> = QuizProps => {
       </NavLink>
       <FCCLogo />
       {!showOptions ? (
-        <SelectCategory
-          selectQuizNumber={(
-            e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-            category: string
-          ) => selectQuiz(category, 0)}
-          category={selectedCategory}
-          selectCategoryArr={selectCategoryArr}
-          selectQuiz={selectQuiz}
-          startRandomQuiz={startRandomQuiz}
-        />
+        <></>
       ) : isResults ? (
         <Results {...resultsProps} />
       ) : isReady ? (
-        <Questions {...questionProps} {...modalProps} />
+        <></>
       ) : (
-        <SelectQuiz
-          startQuiz={startQuiz}
-          totalQuestions={filteredQuestions.length}
-          selectQuizArr={selectQuizArr}
-          {...selectQuizProps}
-        />
+        <></>
       )}
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <SelectCategory
+              selectQuizNumber={(
+                e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+                category: string
+              ) => selectQuiz(category, 0)}
+              category={selectedCategory}
+              selectCategoryArr={selectCategoryArr}
+              selectQuiz={selectQuiz}
+              startRandomQuiz={startRandomQuiz}
+            />
+          }
+        />
+        <Route
+          path="/:category/questionsNumber"
+          element={
+            <SelectQuiz
+              startQuiz={startQuiz}
+              totalQuestions={filteredQuestions.length}
+              selectQuizArr={selectQuizArr}
+              {...selectQuizProps}
+            />
+          }
+        />
+      </Routes>
     </>
   );
 };

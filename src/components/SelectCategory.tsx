@@ -1,5 +1,5 @@
 import React from "react";
-
+import { NavLink } from "react-router-dom";
 interface SelectCategoryProps {
   category: string;
   selectCategoryArr: string[];
@@ -17,16 +17,21 @@ const SelectCategory: React.FC<SelectCategoryProps> = SelectCategoryProps => {
       <h2 className="quiz-heading">Choose a Category</h2>
       <div className="w-25 select-btn-div">
         {SelectCategoryProps.selectCategoryArr.map(
-          (category: string, index: number) => (
-            <button
-              className="select-btns"
-              onClick={() => SelectCategoryProps.selectQuiz(category, index)}
-              value={category}
-              key={index}
-            >
-              {category}
-            </button>
-          )
+          (category: string, index: number) => {
+            return (
+              <NavLink to={`/quizes/${category}/questionsNumber`} key={index}>
+                <button
+                  className="select-btns"
+                  onClick={() =>
+                    SelectCategoryProps.selectQuiz(category, index)
+                  }
+                  value={category}
+                >
+                  {category}
+                </button>
+              </NavLink>
+            );
+          }
         )}
         <button
           className="select-btns"
