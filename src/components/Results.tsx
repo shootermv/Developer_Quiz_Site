@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Confetti from "react-confetti";
+import { NavLink } from "react-router-dom";
 
 interface PointTotals {
   points: number;
@@ -76,10 +77,11 @@ const Results: React.FC<PointTotals> = ({
           RPG game
         </a>
       </p>
-
-      <button onClick={resetQuiz} className="results-btn">
-        Play again?
-      </button>
+      <NavLink to="/quizes">
+        <button onClick={resetQuiz} className="results-btn">
+          Play again?
+        </button>
+      </NavLink>
 
       {totalPercentageCorrect >= 70 && (
         <a

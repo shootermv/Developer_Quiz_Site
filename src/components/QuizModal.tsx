@@ -14,8 +14,8 @@ interface QuizQuestion {
 }
 
 const QuizModal: React.FC<QuizQuestion> = QuizQuestion => {
-  const { category, currentQuestion } = useParams();
-  console.log("par", category);
+  const { category, currentQuestion, total } = useParams();
+
   return (
     <>
       <Modal className="modal-styles" show={QuizQuestion.show}>
@@ -57,11 +57,23 @@ const QuizModal: React.FC<QuizQuestion> = QuizQuestion => {
           </p>
         </Modal.Body>
         <Modal.Footer>
-          <NavLink to={`/quizes/${category}/questions/${+currentQuestion + 1}`}>
-            <button className="modal-btn" onClick={QuizQuestion.nextQuestion}>
-              Next Question
-            </button>
-          </NavLink>
+          {+currentQuestion < +total ? (
+            <NavLink
+              to={`/quizes/${category}/questions/${
+                +currentQuestion + 1
+              }/of/${total}`}
+            >
+              <button className="modal-btn" onClick={QuizQuestion.nextQuestion}>
+                Next Question
+              </button>
+            </NavLink>
+          ) : (
+            <NavLink to={`/quizes/${category}/results`}>
+              <button className="modal-btn" onClick={QuizQuestion.nextQuestion}>
+                Next Question
+              </button>
+            </NavLink>
+          )}
         </Modal.Footer>
       </Modal>
     </>

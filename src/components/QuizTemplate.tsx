@@ -234,15 +234,6 @@ const QuizTemplate: React.FC<QuizProps> = QuizProps => {
         />
       </NavLink>
       <FCCLogo />
-      {!showOptions ? (
-        <></>
-      ) : isResults ? (
-        <Results {...resultsProps} />
-      ) : isReady ? (
-        <></>
-      ) : (
-        <></>
-      )}
       <Routes>
         <Route
           path="/"
@@ -271,8 +262,12 @@ const QuizTemplate: React.FC<QuizProps> = QuizProps => {
           }
         />
         <Route
-          path={"/:category/questions/:currentQuestion"}
+          path={"/:category/questions/:currentQuestion/of/:total"}
           element={<Questions {...questionProps} {...modalProps} />}
+        />
+        <Route
+          path={"/:category/results"}
+          element={<Results {...resultsProps} />}
         />
       </Routes>
     </>

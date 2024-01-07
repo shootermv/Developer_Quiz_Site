@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 
 interface SelectQuizProps {
   startQuiz: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
@@ -12,14 +12,14 @@ const SelectQuiz: React.FC<SelectQuizProps> = SelectQuizProps => {
   const availableQuizLengths = SelectQuizProps.selectQuizArr.filter(
     length => length <= SelectQuizProps.totalQuestions
   );
-
+  const { category } = useParams();
   return (
     <div className="select-quiz-styles">
       <h2 className="quiz-heading">Choose a length for the Quiz</h2>
       <div className="w-25 select-btn-div">
         {availableQuizLengths.map((choice: number, index: number) => (
           <NavLink
-            to={`/quizes/${SelectQuizProps.selectedCategory}/questions/1`}
+            to={`/quizes/${category}/questions/1/of/${choice}`}
             key={index}
           >
             <button
