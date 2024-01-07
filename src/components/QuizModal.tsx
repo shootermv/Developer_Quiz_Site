@@ -1,6 +1,7 @@
 import Modal from "react-bootstrap/Modal";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { MouseEventHandler } from "react";
+import { NavLink, useParams } from "react-router-dom";
 
 interface QuizQuestion {
   chosenAnswer: string;
@@ -13,6 +14,8 @@ interface QuizQuestion {
 }
 
 const QuizModal: React.FC<QuizQuestion> = QuizQuestion => {
+  const { category, currentQuestion } = useParams();
+  console.log("par", category);
   return (
     <>
       <Modal className="modal-styles" show={QuizQuestion.show}>
@@ -54,9 +57,11 @@ const QuizModal: React.FC<QuizQuestion> = QuizQuestion => {
           </p>
         </Modal.Body>
         <Modal.Footer>
-          <button className="modal-btn" onClick={QuizQuestion.nextQuestion}>
-            Next Question
-          </button>
+          <NavLink to={`/quizes/${category}/questions/${+currentQuestion + 1}`}>
+            <button className="modal-btn" onClick={QuizQuestion.nextQuestion}>
+              Next Question
+            </button>
+          </NavLink>
         </Modal.Footer>
       </Modal>
     </>
