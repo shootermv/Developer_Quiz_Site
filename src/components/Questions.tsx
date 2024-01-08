@@ -1,3 +1,4 @@
+import { useParams } from "react-router-dom";
 import QuizModal from "./QuizModal";
 import React, { MouseEventHandler } from "react";
 
@@ -26,28 +27,27 @@ interface QuizProps {
 }
 
 const Questions: React.FC<QuizProps> = QuizProps => {
+  const { total, currentQuestion } = useParams();
   return (
     <>
       <div className="quiz-text">
         <p>
-          Question: {QuizProps.questionNumber}/{QuizProps.totalQuestions}
+          Question: {currentQuestion}/{total}
         </p>
         <p>Points: {QuizProps.points}</p>
       </div>
-      <h1 className="quiz-heading">Question {QuizProps.questionNumber}</h1>
+      <h1 className="quiz-heading">Question {currentQuestion}</h1>
       <div className="quiz-div">
         {QuizProps.chooseAnswer ? (
           <QuizModal {...QuizProps.modalProps} />
         ) : (
           <fieldset className="quiz-answers-div">
             <legend>
-              <span className="sr-only">
-                Question {QuizProps.questionNumber}
-              </span>{" "}
+              <span className="sr-only">Question {currentQuestion}</span>{" "}
               {QuizProps.currQuestion.Question}
             </legend>
             <ul ref={QuizProps.answerButtonsRef}>
-              {QuizProps.choicesArr[QuizProps.questionNumber - 1].map(
+              {QuizProps.choicesArr[+currentQuestion - 1].map(
                 (btn: string | string[] | number, index: number) => (
                   <li key={index}>
                     <button
