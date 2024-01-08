@@ -9,13 +9,11 @@ import React, { MouseEventHandler } from "react";
 import { ROUNDED_QUESTION_COUNT } from "../constants";
 import { NavLink } from "react-router-dom";
 
-const WelcomePage: React.FC<{ start: MouseEventHandler<HTMLElement> }> = ({
-  start
-}) => {
+const WelcomePage: React.FC = () => {
   return (
     <>
       <Navbar />
-      <HeroSection start={start} />
+      <HeroSection />
 
       <main className="text-center">
         <hr className="featurette-divider" id="divider" />

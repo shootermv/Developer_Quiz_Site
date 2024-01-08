@@ -3,9 +3,7 @@ import Button from "./Button";
 import "../stylesheets/HeroSection.css";
 import { ROUNDED_QUESTION_COUNT } from "../constants";
 import { NavLink } from "react-router-dom";
-const HeroSection: React.FC<{ start: MouseEventHandler<HTMLElement> }> = ({
-  start
-}) => {
+const HeroSection: React.FC = () => {
   return (
     <div className="hero-container">
       <div className="hero-content">

@@ -14,11 +14,7 @@ import {
 } from "../data/modal-responses";
 import { NavLink, Route, Routes } from "react-router-dom";
 
-interface QuizProps {
-  home: React.MouseEventHandler;
-}
-
-const QuizTemplate: React.FC<QuizProps> = QuizProps => {
+const QuizTemplate: React.FC = () => {
   const [quiz, setQuiz] = useState(ALL_CATEGORIES);
   const [questionNumber, setQuestionNumber] = useState(1);
   const [isResults, setIsResults] = useState(false);
