@@ -1,13 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
+import Root from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter } from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+
+const router = createBrowserRouter([{ path: "*", Component: Root }]);
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter basename="/Developer_Quiz_Site">
-      <App />
-    </BrowserRouter>
+    {/*<BrowserRouter basename="/Developer_Quiz_Site">*/}
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
