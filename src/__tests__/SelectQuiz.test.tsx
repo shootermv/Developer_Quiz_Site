@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import SelectQuiz from "../components/SelectQuiz";
+import SelectQuiz from "../components/SelectQuizTotal";
 import { render, cleanup } from "@testing-library/react";
 
 afterEach(cleanup);

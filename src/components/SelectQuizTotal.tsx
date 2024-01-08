@@ -8,7 +8,7 @@ interface SelectQuizProps {
   totalQuestions: number; // Add the totalQuestions prop
 }
 
-const SelectQuiz: React.FC<SelectQuizProps> = SelectQuizProps => {
+const SelectQuizTotal: React.FC<SelectQuizProps> = SelectQuizProps => {
   const availableQuizLengths = SelectQuizProps.selectQuizArr.filter(
     length => length <= SelectQuizProps.totalQuestions
   );
@@ -43,4 +43,4 @@ const SelectQuiz: React.FC<SelectQuizProps> = SelectQuizProps => {
     </div>
   );
 };
-export default SelectQuiz;
+export default SelectQuizTotal;
