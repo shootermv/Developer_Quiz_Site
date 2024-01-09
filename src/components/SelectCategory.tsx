@@ -1,7 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 interface SelectCategoryProps {
-  category: string;
   selectCategoryArr: string[];
   selectQuiz: (category: string, index: number) => void;
   selectQuizNumber: (

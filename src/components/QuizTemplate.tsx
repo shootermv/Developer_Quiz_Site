@@ -239,7 +239,6 @@ const QuizTemplate: React.FC = () => {
                 e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
                 category: string
               ) => selectQuiz(category, 0)}
-              category={selectedCategory}
               selectCategoryArr={selectCategoryArr}
               selectQuiz={selectQuiz}
               startRandomQuiz={startRandomQuiz}
