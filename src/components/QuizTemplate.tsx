@@ -17,7 +17,7 @@ import { NavLink, Route, Routes } from "react-router-dom";
 const QuizTemplate: React.FC = () => {
   const [quiz, setQuiz] = useState(ALL_CATEGORIES);
   const [questionNumber, setQuestionNumber] = useState(1);
-  const [isResults, setIsResults] = useState(false);
+  // const [isResults, setIsResults] = useState(false);
   const [points, setPoints] = useState(0);
   const [message, setMessage] = useState("");
   const [displayExplanation, setDisplayExplanation] = useState("");
@@ -28,7 +28,7 @@ const QuizTemplate: React.FC = () => {
   const [show, setShow] = useState(false);
   const [showOptions, setShowOptions] = useState(false);
   const selectQuizArr = [10, 25, 50, 100];
-  const [isReady, setIsReady] = useState(false);
+
   const selectCategoryArr = [
     "HTML",
     "CSS",
@@ -69,14 +69,12 @@ const QuizTemplate: React.FC = () => {
     setSelectedCategory(category);
     setSelectedQuiz(selectQuizArr[index]);
     setShowOptions(true);
-    setIsResults(false); // Set to false to hide Results component
     // Filter questions based on the selected category
     const filteredQuiz = ALL_CATEGORIES.filter(q => q.Category === category);
     setFilteredQuestions(filteredQuiz);
   };
 
   const startQuiz = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    setIsReady(true);
     const userAnswer = parseInt(e.currentTarget.value);
     const shuffledQuiz = shuffle(filteredQuestions).slice(0, userAnswer);
 
@@ -101,7 +99,6 @@ const QuizTemplate: React.FC = () => {
     const randomIndex = Math.floor(Math.random() * selectQuizArr.length);
     setSelectedQuiz(selectQuizArr[randomIndex]);
     setShowOptions(true);
-    setIsResults(false);
     // Generate a random set of questions
     const randomQuestions = shuffle(ALL_CATEGORIES).slice(
       0,
@@ -115,7 +112,6 @@ const QuizTemplate: React.FC = () => {
 
   const nextQuestion = () => {
     if (questionNumber >= quiz.length) {
-      setIsResults(true);
       return;
     }
     setQuestionNumber(curr => curr + 1);
@@ -125,11 +121,8 @@ const QuizTemplate: React.FC = () => {
   const resetQuiz = () => {
     setSelectedCategory(""); // Reset selected category
     setSelectedQuiz(0); // Reset selected quiz
-    // setQuiz(ALL_CATEGORIES);
     setShowOptions(false);
-    setIsResults(false);
     setShow(false);
-    setIsReady(false);
     setChooseAnswer(false);
     setPoints(0);
     setQuestionNumber(1);
