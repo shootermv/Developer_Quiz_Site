@@ -59,7 +59,7 @@ const QuizModal: React.FC<QuizQuestion> = QuizQuestion => {
         <Modal.Footer>
           {+currentQuestion < +total ? (
             <NavLink
-              to={`/quizes/${category}/questions/${
+              to={`/quizzes/${category}/questions/${
                 +currentQuestion + 1
               }/of/${total}`}
             >
@@ -68,7 +68,7 @@ const QuizModal: React.FC<QuizQuestion> = QuizQuestion => {
               </button>
             </NavLink>
           ) : (
-            <NavLink to={`/quizes/${category}/results`}>
+            <NavLink to={`/quizzes/${category}/results`}>
               <button className="modal-btn" onClick={QuizQuestion.nextQuestion}>
                 Next Question
               </button>

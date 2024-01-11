@@ -19,7 +19,7 @@ const SelectQuizTotal: React.FC<SelectQuizProps> = SelectQuizProps => {
       <div className="w-25 select-btn-div">
         {availableQuizLengths.map((choice: number, index: number) => (
           <NavLink
-            to={`/quizes/${category}/questions/1/of/${choice}`}
+            to={`/quizzes/${category}/questions/1/of/${choice}`}
             key={index}
           >
             <button

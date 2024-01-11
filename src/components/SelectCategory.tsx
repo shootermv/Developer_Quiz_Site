@@ -18,7 +18,7 @@ const SelectCategory: React.FC<SelectCategoryProps> = SelectCategoryProps => {
         {SelectCategoryProps.selectCategoryArr.map(
           (category: string, index: number) => {
             return (
-              <NavLink to={`/quizes/${category}/questionsTotal`} key={index}>
+              <NavLink to={`/quizzes/${category}/questionsTotal`} key={index}>
                 <button
                   className="select-btns"
                   onClick={() =>

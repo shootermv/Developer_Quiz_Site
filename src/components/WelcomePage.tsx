@@ -29,7 +29,7 @@ const WelcomePage: React.FC = () => {
               {ROUNDED_QUESTION_COUNT}+ questions.
             </p>
 
-            <NavLink to="/quizes">
+            <NavLink to="/quizzes">
               <Button
                 handleClick={() => {
                   console.log("");

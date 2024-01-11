@@ -77,7 +77,7 @@ const Results: React.FC<PointTotals> = ({
           RPG game
         </a>
       </p>
-      <NavLink to="/quizes">
+      <NavLink to="/quizzes">
         <button onClick={resetQuiz} className="results-btn">
           Play again?
         </button>

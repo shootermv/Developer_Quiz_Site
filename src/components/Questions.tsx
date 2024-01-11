@@ -31,7 +31,7 @@ const Questions: React.FC<QuizProps> = QuizProps => {
   const navigate = useNavigate();
   useEffect(() => {
     if (!QuizProps.choicesArr.length) {
-      navigate("/quizes");
+      navigate("/quizzes");
     }
   }, [QuizProps.choicesArr]);
 
