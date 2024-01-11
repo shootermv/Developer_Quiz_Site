@@ -5,7 +5,7 @@ import Navbar from "./Navbar";
 import Button from "./Button";
 import HeroSection from "./HeroSection";
 import "../stylesheets/HomepageRow.css";
-import React, { MouseEventHandler } from "react";
+import React from "react";
 import { ROUNDED_QUESTION_COUNT } from "../constants";
 import { NavLink } from "react-router-dom";
 

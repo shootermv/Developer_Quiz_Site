@@ -12,7 +12,7 @@ import {
   correctModalResponses,
   incorrectModalResponses
 } from "../data/modal-responses";
-import { NavLink, Route, Routes } from "react-router-dom";
+import { NavLink, Route, Routes, useParams } from "react-router-dom";
 
 const QuizTemplate: React.FC = () => {
   const [quiz, setQuiz] = useState(ALL_CATEGORIES);
@@ -26,7 +26,6 @@ const QuizTemplate: React.FC = () => {
   const [chooseAnswer, setChooseAnswer] = useState(false);
   const [show, setShow] = useState(false);
   const selectQuizArr = [10, 25, 50, 100];
-
   const selectCategoryArr = [
     "HTML",
     "CSS",
@@ -131,7 +130,13 @@ const QuizTemplate: React.FC = () => {
     return shuffleModalArr[0];
   };
 
-  const selectOption = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const selectOption = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    currentQuestionFromUrl: number
+  ) => {
+    //prevent answering question more than once
+    if (questionNumber > currentQuestionFromUrl) return;
+
     setSelectedOption(e.currentTarget.value);
     // Get answer buttons
     const answerBtns =
