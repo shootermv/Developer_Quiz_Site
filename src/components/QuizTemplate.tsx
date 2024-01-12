@@ -12,7 +12,7 @@ import {
   correctModalResponses,
   incorrectModalResponses
 } from "../data/modal-responses";
-import { NavLink, Route, Routes, useParams } from "react-router-dom";
+import { NavLink, Route, Routes } from "react-router-dom";
 
 const QuizTemplate: React.FC = () => {
   const [quiz, setQuiz] = useState(ALL_CATEGORIES);
@@ -62,10 +62,7 @@ const QuizTemplate: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedQuiz, setSelectedQuiz] = useState(0);
 
-  const selectQuiz = (category: string, index: number) => {
-    setSelectedCategory(category);
-    setSelectedQuiz(selectQuizArr[index]);
-
+  const selectQuiz = (category: string) => {
     // Filter questions based on the selected category
     const filteredQuiz = ALL_CATEGORIES.filter(q => q.Category === category);
     setFilteredQuestions(filteredQuiz);
@@ -230,10 +227,6 @@ const QuizTemplate: React.FC = () => {
           path="/"
           element={
             <SelectCategory
-              selectQuizNumber={(
-                e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-                category: string
-              ) => selectQuiz(category, 0)}
               selectCategoryArr={selectCategoryArr}
               selectQuiz={selectQuiz}
               startRandomQuiz={startRandomQuiz}
