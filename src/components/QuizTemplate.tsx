@@ -238,7 +238,6 @@ const QuizTemplate: React.FC = () => {
           element={
             <SelectQuizTotal
               startQuiz={startQuiz}
-              totalQuestions={filteredQuestions.length}
               selectQuizArr={selectQuizArr}
               {...selectQuizProps}
             />

@@ -1,18 +1,25 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { NavLink, useParams } from "react-router-dom";
+import { ALL_CATEGORIES } from "../constants";
 
 interface SelectQuizProps {
   startQuiz: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   selectQuizArr: number[];
-  selectedCategory: string; // Add the selectedCategory prop
-  totalQuestions: number; // Add the totalQuestions prop
 }
 
 const SelectQuizTotal: React.FC<SelectQuizProps> = SelectQuizProps => {
-  const availableQuizLengths = SelectQuizProps.selectQuizArr.filter(
-    length => length <= SelectQuizProps.totalQuestions
-  );
   const { category } = useParams();
+  const totalQuestions = useMemo(
+    () => ALL_CATEGORIES.filter(q => q.Category === category),
+    [category]
+  );
+  const availableQuizLengths = useMemo(
+    () =>
+      SelectQuizProps.selectQuizArr.filter(
+        length => length <= totalQuestions.length
+      ),
+    [totalQuestions]
+  );
   return (
     <div className="select-quiz-styles">
       <h2 className="quiz-heading">Choose a length for the Quiz</h2>
@@ -35,9 +42,9 @@ const SelectQuizTotal: React.FC<SelectQuizProps> = SelectQuizProps => {
         <button
           className="select-btns"
           onClick={SelectQuizProps.startQuiz}
-          value={SelectQuizProps.totalQuestions}
+          value={totalQuestions.length}
         >
-          All ({SelectQuizProps.totalQuestions})
+          All ({totalQuestions.length})
         </button>
       </div>
     </div>
