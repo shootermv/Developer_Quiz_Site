@@ -17,8 +17,19 @@ import sqlQuiz from "./data/sql-quiz";
 import regexQuiz from "./data/regex-quiz";
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const mapQuizCategory = (quiz: any[], category: string) => {
-  return quiz.map(q => ({ ...q, Category: category }));
+  return quiz.map(question => ({ ...question, Category: category }));
 };
+export const categoryArr = [
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "Accessibility",
+  "General CS",
+  "IT",
+  "Linux",
+  "Python",
+  "SQL"
+];
 export const ALL_CATEGORIES = [
   ...mapQuizCategory(accessibilityQuiz, "Accessibility"),
   ...mapQuizCategory(cssQuiz, "CSS"),

@@ -26,17 +26,7 @@ const QuizTemplate: React.FC = () => {
   const [chooseAnswer, setChooseAnswer] = useState(false);
   const [show, setShow] = useState(false);
   const selectQuizArr = [10, 25, 50, 100];
-  const selectCategoryArr = [
-    "HTML",
-    "CSS",
-    "JavaScript",
-    "Accessibility",
-    "General CS",
-    "IT",
-    "Linux",
-    "Python",
-    "SQL"
-  ];
+
   const [choicesArr, setChoicesArr] = useState<string[][]>([]);
   const currQuestion = quiz[questionNumber - 1];
   const totalQuestions = quiz.length;
@@ -227,7 +217,6 @@ const QuizTemplate: React.FC = () => {
           path="/"
           element={
             <SelectCategory
-              selectCategoryArr={selectCategoryArr}
               selectQuiz={selectQuiz}
               startRandomQuiz={startRandomQuiz}
             />

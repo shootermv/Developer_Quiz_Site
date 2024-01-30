@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { categoryArr } from "../constants";
 interface SelectCategoryProps {
-  selectCategoryArr: string[];
   selectQuiz: (category: string, index: number) => void;
   startRandomQuiz: () => void;
 }
@@ -11,23 +11,19 @@ const SelectCategory: React.FC<SelectCategoryProps> = SelectCategoryProps => {
     <div className="select-quiz-styles">
       <h2 className="quiz-heading">Choose a Category</h2>
       <div className="w-25 select-btn-div">
-        {SelectCategoryProps.selectCategoryArr.map(
-          (category: string, index: number) => {
-            return (
-              <NavLink to={`/quizzes/${category}/questionsTotal`} key={index}>
-                <button
-                  className="select-btns"
-                  onClick={() =>
-                    SelectCategoryProps.selectQuiz(category, index)
-                  }
-                  value={category}
-                >
-                  {category}
-                </button>
-              </NavLink>
-            );
-          }
-        )}
+        {categoryArr.map((category: string, index: number) => {
+          return (
+            <NavLink to={`/quizzes/${category}/questionsTotal`} key={index}>
+              <button
+                className="select-btns"
+                onClick={() => SelectCategoryProps.selectQuiz(category, index)}
+                value={category}
+              >
+                {category}
+              </button>
+            </NavLink>
+          );
+        })}
         <NavLink to={`/quizzes/Random/questionsTotal`}>
           <button
             className="select-btns"
