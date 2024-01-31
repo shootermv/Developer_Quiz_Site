@@ -4,7 +4,7 @@ import { ALL_CATEGORIES } from "../constants";
 
 interface SelectQuizProps {
   startQuiz: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-  selectQuizArr: number[];
+  selectQNumberArr: number[];
 }
 
 const SelectQuizTotal: React.FC<SelectQuizProps> = SelectQuizProps => {
@@ -15,7 +15,7 @@ const SelectQuizTotal: React.FC<SelectQuizProps> = SelectQuizProps => {
   );
   const availableQuizLengths = useMemo(
     () =>
-      SelectQuizProps.selectQuizArr.filter(
+      SelectQuizProps.selectQNumberArr.filter(
         length => length <= totalQuestions.length
       ),
     [totalQuestions]

@@ -11,7 +11,7 @@ describe("Select Quiz", () => {
     ReactDOM.render(
       <SelectQuiz
         startQuiz={undefined}
-        selectQuizArr={[10, 25, 50, 100, 681]}
+        selectQNumberArr={[10, 25, 50, 100, 681]}
         selectedCategory={""}
         totalQuestions={0}
       />,
@@ -22,7 +22,7 @@ describe("Select Quiz", () => {
     const { getByText } = render(
       <SelectQuiz
         startQuiz={undefined}
-        selectQuizArr={[10, 25, 50, 100]}
+        selectQNumberArr={[10, 25, 50, 100]}
         selectedCategory={""}
         totalQuestions={600}
       />
@@ -37,7 +37,7 @@ describe("Select Quiz", () => {
     const { getByText } = render(
       <SelectQuiz
         startQuiz={undefined}
-        selectQuizArr={[600, 601]}
+        selectQNumberArr={[600, 601]}
         selectedCategory={""}
         totalQuestions={601}
       />
