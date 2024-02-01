@@ -1,10 +1,9 @@
 import React, { useMemo } from "react";
 import { NavLink, useParams } from "react-router-dom";
-import { ALL_CATEGORIES } from "../constants";
+import { ALL_CATEGORIES, selectQNumberArr } from "../constants";
 
 interface SelectQuizProps {
   startQuiz: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-  selectQNumberArr: number[];
 }
 
 const SelectQuizTotal: React.FC<SelectQuizProps> = SelectQuizProps => {
@@ -14,11 +13,8 @@ const SelectQuizTotal: React.FC<SelectQuizProps> = SelectQuizProps => {
     [category]
   );
   const availableQuizLengths = useMemo(
-    () =>
-      SelectQuizProps.selectQNumberArr.filter(
-        length => length <= totalQuestions.length
-      ),
-    [totalQuestions]
+    () => selectQNumberArr.filter(length => length <= totalQuestions.length),
+    [totalQuestions, category]
   );
   return (
     <div className="select-quiz-styles">

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import SelectQuizTotal from "./SelectQuizTotal";
 import SelectCategory from "./SelectCategory";
-import { ALL_CATEGORIES } from "../constants";
+import { ALL_CATEGORIES, selectQNumberArr } from "../constants";
 import Results from "./Results";
 import shuffle from "../shuffle-arr";
 import Button from "./Button";
@@ -25,7 +25,6 @@ const QuizTemplate: React.FC = () => {
   const [chosenAnswer, setChosenAnswer] = useState("");
   const [chooseAnswer, setChooseAnswer] = useState(false);
   const [show, setShow] = useState(false);
-  const selectQNumberArr = [10, 25, 50, 100];
 
   const [choicesArr, setChoicesArr] = useState<string[][]>([]);
   const currQuestion = quiz[questionNumber - 1];
@@ -226,11 +225,7 @@ const QuizTemplate: React.FC = () => {
         <Route
           path="/:category/questionsTotal"
           element={
-            <SelectQuizTotal
-              startQuiz={startQuiz}
-              selectQNumberArr={selectQNumberArr}
-              {...selectQuizProps}
-            />
+            <SelectQuizTotal startQuiz={startQuiz} {...selectQuizProps} />
           }
         />
         <Route

@@ -19,6 +19,7 @@ import regexQuiz from "./data/regex-quiz";
 const mapQuizCategory = (quiz: any[], category: string) => {
   return quiz.map(question => ({ ...question, Category: category }));
 };
+export const selectQNumberArr = [10, 25, 50, 100];
 export const categoryArr = [
   "HTML",
   "CSS",
