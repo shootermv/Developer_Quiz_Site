@@ -18,7 +18,9 @@ const QuizModal: React.FC<QuizQuestion> = QuizQuestion => {
       <Modal className="modal-styles" show={QuizQuestion.show}>
         <Modal.Header>
           <Modal.Title>
-            <h2 className="modal-text">💡 {QuizQuestion.message}</h2>
+            <h2 className="modal-text">
+              {QuizQuestion.points ? <>💡</> : <>😕</>} {QuizQuestion.message}
+            </h2>
             <h3 className="modal-text">Points: {QuizQuestion.points}</h3>
           </Modal.Title>
         </Modal.Header>
