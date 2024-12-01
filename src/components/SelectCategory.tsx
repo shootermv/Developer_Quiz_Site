@@ -1,5 +1,6 @@
 import React from "react";
 import { CATEGORIES } from "../constants";
+import SelectOptions from "./SelectOptions";
 
 interface SelectCategoryProps {
   selectQuiz: (category: string, index: number) => void;
@@ -10,23 +11,15 @@ const SelectCategory: React.FC<SelectCategoryProps> = SelectCategoryProps => {
   return (
     <div className="select-quiz-styles">
       <h2 className="quiz-heading">Choose a Category</h2>
-      <div className="select-btn-div">
-        {CATEGORIES.map((category: string, index: number) => (
-          <button
-            className="select-btns"
-            onClick={() => SelectCategoryProps.selectQuiz(category, index)}
-            key={index}
-          >
-            {category}
-          </button>
-        ))}
-        <button
-          className="select-btns"
-          onClick={SelectCategoryProps.startRandomQuiz}
-        >
-          Random
-        </button>
-      </div>
+      <SelectOptions
+        list={CATEGORIES}
+        groupName="categories"
+        onChange={category =>
+          category === "Random"
+            ? SelectCategoryProps.startRandomQuiz()
+            : SelectCategoryProps.selectQuiz(category, 0)
+        }
+      />
     </div>
   );
 };
